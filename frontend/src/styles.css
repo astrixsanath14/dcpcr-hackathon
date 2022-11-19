@@ -1,0 +1,144 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+.btn,
+.jumbotron,
+.nav :hover {
+  border-radius: 0px;
+}
+
+body {
+  background: #ffffff;
+}
+
+/* footer{
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+} */
+
+.searchbar {
+  max-width: 200px;
+  display: flex;
+  margin-bottom: auto;
+  margin-top: auto;
+  height: 30px;
+  background: #ffffff;
+  color: black;
+  border-radius: 20px;
+}
+
+.fadeInWidth {
+  animation: 0.2s linear fadeInWidth;
+}
+
+.fadeOutWidth {
+  animation: 0.2s linear fadeOutWidth;
+}
+
+.fadeIn {
+  animation: 0.8s linear fadeIn;
+}
+.fadeOut {
+  animation: 1s linear fadeOut;
+}
+
+.search-input {
+  color: rgb(0, 0, 0);
+  border: 0;
+  outline: 0;
+  background: none;
+  padding: 0px 15px;
+  transition: width 0.4s linear;
+  caret-color: #c24d1f;
+  animation-name: fadeIn;
+  animation-duration: 0.5s;
+}
+
+.search-icon {
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(0, 0, 0);
+  font-size: small;
+}
+
+.icon-bg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+  border-radius: 20px;
+}
+.icon-bg:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+@keyframes fadeInWidth {
+  0% {
+    width: 30px;
+  }
+  100% {
+    width: 200px;
+  }
+}
+@keyframes fadeOutWidth {
+  0% {
+    width: 200px;
+  }
+  100% {
+    width: 30px;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* 
+li + li::before {
+    content: " | ";
+} */
+.flex-list {
+    position: relative;
+    margin: 1em;
+    overflow: hidden;
+}
+.flex-list ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: -1px;
+}
+.flex-list li {
+    flex-grow: 1;
+    flex-basis: auto;
+    margin: .25em 0;
+    padding: 0 1em;
+    text-align: center;
+    border-left: 1px solid #ccc;
+    background-color: #fff;
+}
