@@ -1,17 +1,22 @@
 import React,{useState,useEffect} from 'react';
 import '../styles.css';
-import Base from './Base';
+import { Link, withRouter } from 'react-router-dom';
 
-export default function Home(){
-    const [error,setError]=useState(false);
+const Home = ()=>{
+    const loadHomePageContents = () => {
+        return (
+            <div className="px-5 py-3 container-fluid text-center">
+                    <h1>Child Rights</h1>
+                    <div className='py-3'>The Delhi Commission for Protection of Child Rights has attempted to create extensive repository of all existing entitlements and relevant information which could be of benefit to Persons with Disabilities & their caregivers in Delhi. This website aims to address the information asymmetry by creating awareness about the rights of Persons with Disabilities, especially Children with Special Needs or Children who have parents with disabilities & assist them in understanding the means of leveraging rightful entitlements for their own benefit.</div>
+                    <div className='py-3'>Click to know your rights & entitlement</div>
+                    <Link to="/findtheservice" className="btn bg-dark text-white btn-lg rounded">Get Started</Link>
+            </div>
+        );
+    }
     return(
-        <Base title="DCPCR" description="DCPCR Landing Page">
-           <div className="row text-center">
-                <h1 className="text-white">Child Rights!</h1>
-                <div className="row">
-               </div>
-           </div>
-        </Base>
+        <div>
+            {loadHomePageContents()}
+        </div>
     );
 };
 // const Home=()=>{
@@ -22,4 +27,4 @@ export default function Home(){
 //     );
 // };
 
-// export default Home;
+export default Home;

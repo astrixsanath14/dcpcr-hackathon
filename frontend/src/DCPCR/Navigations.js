@@ -10,8 +10,9 @@ const currentTab = (history, path) => {
 };
 
 const Menu=({history})=>{
-    return (<div>
-        <ul className="nav nav-tabs justify-content-center"
+    return (
+        <div>
+        <ul className="px-5 px-3 nav nav-tabs justify-content-between"
         style={{
         backgroundColor: "#D9D9D9"
       }}>
@@ -42,8 +43,9 @@ const Menu=({history})=>{
             </li>
 
             <Search/>
-        </ul>
-    </div>);
+            </ul>
+            </div>
+    );
 };
 
 export default withRouter(Menu);

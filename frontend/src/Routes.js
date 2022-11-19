@@ -1,20 +1,27 @@
 import React from 'react';
 import {BrowserRouter,Switch,Route} from 'react-router-dom';
 import Home from './DCPCR/Home';
-import FindService from './DCPCR/Home';
-import DisabilityInfo from './DCPCR/Home';
-import EssentialDocs from './DCPCR/Home';
-import Resources from './DCPCR/Home';
+import FindService from './DCPCR/FindService';
+import DisabilityInfo from './DCPCR/DisabilityInfo';
+import EssentialDocs from './DCPCR/EssentialDocs';
+import Resources from './DCPCR/Resources';
+import ScreenReaderAccess from './DCPCR/ScreenReaderAccess';
+import Base from './DCPCR/Base'
+import TopMenu from './DCPCR/TopMenu'
 
 const Routes=()=>{
     return(
         <BrowserRouter>
+            <TopMenu/>
+            
+        <Base/>
             <Switch>
-                <Route path="/" exact component={Home}/>
+                <Route path="/" exact component={Home} />
                 <Route path="/findtheservice" exact component={FindService}/>
                 <Route path="/disabilityinfo" exact component={DisabilityInfo}/>
                 <Route path="/essentialdocs" exact component={EssentialDocs} />
-                <Route path="/resources" exact component={Resources}/>
+                <Route path="/resources" exact component={Resources} />
+                <Route path="/screenreaderaccess" exact component={ScreenReaderAccess}/>
             </Switch>
         </BrowserRouter>
     );
