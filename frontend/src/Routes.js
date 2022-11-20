@@ -8,6 +8,7 @@ import Resources from './DCPCR/Resources';
 import ScreenReaderAccess from './DCPCR/ScreenReaderAccess';
 import Base from './DCPCR/Base'
 import TopMenu from './DCPCR/TopMenu'
+import ShowResults from './DCPCR/ShowResults';
 
 const Routes=()=>{
     return(
@@ -17,11 +18,12 @@ const Routes=()=>{
         <Base/>
             <Switch>
                 <Route path="/" exact component={Home} />
-                <Route path="/findtheservice" exact component={FindService}/>
+                <Route path="/findservice" exact component={FindService}/>
                 <Route path="/disabilityinfo" exact component={DisabilityInfo}/>
                 <Route path="/essentialdocs" exact component={EssentialDocs} />
                 <Route path="/resources" exact component={Resources} />
-                <Route path="/screenreaderaccess" exact component={ScreenReaderAccess}/>
+                <Route path="/screenreaderaccess" exact component={ScreenReaderAccess} />
+                <Route path="/showresults" exact component={ShowResults} />
             </Switch>
         </BrowserRouter>
     );

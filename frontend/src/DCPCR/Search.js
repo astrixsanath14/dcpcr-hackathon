@@ -5,7 +5,12 @@ import useOnclickOutside from "react-cool-onclickoutside"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faSearch } from "@fortawesome/free-solid-svg-icons"
 
+import { useHistory } from "react-router-dom";
+
+
 const Search = () => {
+  const history = useHistory();
+
   const [search, setSearch] = useState()
 
   const toggle = () => {
@@ -17,6 +22,13 @@ const Search = () => {
   const ref = useOnclickOutside(() => {
     closeSearch()
   })
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      console.log("Entered!!");
+        history.push("/");
+    }
+  }
 
   return (
     <Nav className="my-auto" ref={ref}>
@@ -42,7 +54,7 @@ const Search = () => {
             type="text"
             name=""
             placeholder="Schemes/Services..."
-          />
+            onKeyDown={handleKeyDown}/>
         )}
         <div
           className={

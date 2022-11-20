@@ -22,7 +22,7 @@ const Menu=({history})=>{
                 </Link>
             </li>
             <li className="nav-item">
-                <Link style={currentTab(history,"/findtheservice")} className="nav-link" to="/findtheservice">
+                <Link style={currentTab(history,"/findservice")} className="nav-link" to="/findservice">
                     Find the Service
                 </Link>
             </li>

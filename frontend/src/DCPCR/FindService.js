@@ -1,8 +1,13 @@
 import React, { useState } from "react";
-import {Link} from 'react-router-dom';
-import Base from './Base';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import Select from 'react-select'
+import * as Constants from './res/Constants'
+import { useHistory } from 'react-router-dom';
 
-const FindService=()=>{
+
+const FindService = () => {
+    const history = useHistory();
     const [values, setValues] = useState({
         dob: "",
         annualFamilyIncome: "",
@@ -11,81 +16,132 @@ const FindService=()=>{
         disabilityPercentage: "",
         error: ""
     });
-    const {dob,annualFamilyIncome,schemeOrServiveCategory,typeOfDisability,disabilityPercentage,error}=values;
-    const handleChange=name=>event=>{
-        setValues({...values,error:false,[name]:event.target.value});
+    const [errors, setErrors] = useState({});
+    const { dob, annualFamilyIncome, schemeOrServiveCategory, typeOfDisability, disabilityPercentage, error } = values;
+    
+    const handleChange = name => event => {
+        setValues({ ...values, error: false, [name]: event.target.value });
+        // Check and see if errors exist, and remove them from the error object:
+        if (!!errors[name])
+            setErrors({ ...errors, [name]: null })
     };
-    const onSubmit=(event)=>{
+
+    const handleChangeForSelect = name => event => {
+        setValues({ ...values, error: false, [name]: event.value});
+        // Check and see if errors exist, and remove them from the error object:
+        if (!!errors[name])
+            setErrors({ ...errors, [name]: null })
+    };
+
+    const findFormErrors = () => {
+        const newErrors = {}
+        // name errors
+        if (!dob || dob === '') {
+            newErrors.dob = {
+                label: 'Date of Birth',
+                error: 'Cannot be blank!'
+            };
+        }
+        else if(!typeOfDisability || typeOfDisability === '') {
+            newErrors.typeOfDisability = {
+                label: 'Disability',
+                error: 'At least one must be selected!'
+            };
+        }
+        else if (!disabilityPercentage || disabilityPercentage < 0 || disabilityPercentage > 100) {
+            newErrors.disabilityPercentage ={
+                label: 'Disability Percentage',
+                error: 'Invalid value specified!'
+            };
+        }
+        return newErrors;
+    }
+    const onSubmit = (event) => {
         event.preventDefault();
-        setValues({...values,error:false});
-        // signup({name,email,password}).then((data)=>{
-        //     if(data.error){
-        //         setValues({...values,error:data.error,success:false});
-        //     }else{
-        //         setValues({...values,name:"",email:"",password:"",error:"",success:true});
-        //     }
-        // }).catch((err)=>{
-        //     console.log("Error in signup",err);
-        // });
+        const newErrors = findFormErrors()
+        console.log('newErrors', newErrors);
+        if (Object.keys(newErrors).length > 0) {
+            // We got errors!
+            setErrors(newErrors);
+            setValues({ ...values, error: true });
+            window.scrollTo(0,0);
+            return;
+        }
+        console.log('Form validated succesfully!')
+        setValues({ ...values, error: false });
+        history.push('/showresults', { values: values });
+
     };
-    const FindTheServiceForm=()=>{
-        return(
+    const FindTheServiceForm = () => {
+        return (
             <div className="py-5 text-start">
                 <div className="col-md-6 offset-sm-3 border border-dark rounded">
-                        <h4 className="rounded-bottom px-3 py-3" style={{
+                    <h4 className="rounded-bottom px-3 py-3" style={{
                         backgroundColor: "#D9D9D9"
-      }}>Let us help you find relevant scheme and services for you!</h4>
-                    <form className="py-3" action="">
-                        <div className="form-group px-5 py-3">
-                            <label className="text-dark">Date of Birth</label>
-                            <input className="form-control" onChange={handleChange("dob")} value={dob} type="date"/>
-                        </div>
-                        <div className="form-group px-5 py-3">
-                            <label className="text-dark">Annual Family Income (Optional)</label>
-                            <select className="form-control" onChange={handleChange("annualFamilyIncome")} value={annualFamilyIncome} >
-                                <option>0-20,000</option>
-                                <option>20,000-50,000</option>
-                                <option>>50,000</option>
-                            </select>
-                        </div>
-                        <div className="form-group px-5 py-3">
-                            <label className="text-dark">Any specific category of scheme or services, you are interested in? (Optional)?</label>
-                            <select className="form-control" onChange={handleChange("schemeOrServiveCategory")} value={schemeOrServiveCategory}>
-                                <option>Educational</option>
-                                <option>Health</option>
-                                <option>Financial</option>
-                                <option>Skill & Employment</option>
-                            </select>
-                        </div>
-                        <div className="form-group px-5 py-3">
-                            <label className="text-dark">Type of disability?</label>
-                            <select className="form-control" onChange={handleChange("typeOfDisability")} value={typeOfDisability}>
-                                <option>Physical Disability</option>
-                                <option>Intellectual Disability</option>
-                                <option>Mental Disability</option>
-                                <option>Neurological</option>
-                                <option>Blood Disability</option>
-                                <option>Multiple Disability</option>
-                            </select>
-                        </div>
-                        <div className="form-group px-5 py-3">
-                            <label className="text-dark">Disability Percentage% (Optional)</label>
-                            <input className="form-control" onChange={handleChange("disabilityPercentage")} value={disabilityPercentage} type="number"/>
-                        </div>
-                        <div className="form-group text-center">
-                            <button className="btn btn-dark px-5 rounded" onClick={onSubmit}>Search</button>
-                        </div>
-                    </form>
+                    }}>Let us help you find relevant scheme and services for you!</h4>
+                    <Form className="py-3" action="">
+                        <Form.Group className="form-group px-5 py-3">
+                            <Form.Label className="text-dark">Date of Birth</Form.Label>
+                            <Form.Control className="form-control" onChange={handleChange("dob")} type="date"/>
+                        </Form.Group>
+                        <Form.Group className="form-group px-5 py-3">
+                            <Form.Label className="text-dark">Annual Family Income (Optional)</Form.Label>
+                            <Select
+                                onChange={handleChangeForSelect("annualFamilyIncome")}
+                                options={Constants.AnnualIncomeOptions}>
+                            </Select>
+                        </Form.Group>
+                        <Form.Group className="form-group px-5 py-3">
+                            <Form.Label className="text-dark">Any specific category of scheme or services, you are interested in? (Optional)</Form.Label>
+                            <Select
+                                onChange={handleChangeForSelect("schemeOrServiveCategory")}
+                                options={Constants.SchemeAndServiceCategoryOptions}>
+                            </Select>
+                            {/* <Form.Control.Feedback type='invalid'>
+                                {errors.schemeOrServiveCategory}
+                            </Form.Control.Feedback> */}
+                        </Form.Group>
+
+                        <Form.Group className="form-group px-5 py-3">
+                            <Form.Label className="text-dark">Type of disability?</Form.Label>
+                            <Select onChange={handleChangeForSelect("typeOfDisability")} isInvalid={!!errors.typeOfDisability}
+                                options={Constants.DisabilityOptions}>
+                            </Select>
+                        </Form.Group>
+
+                        <Form.Group className="form-group px-5 py-3">
+                            <Form.Label className="text-dark">Disability Percentage% (Optional)</Form.Label>
+                            <Form.Control className="form-control" onChange={handleChange("disabilityPercentage")} value={disabilityPercentage} type="number" required isInvalid={!!errors.disabilityPercentage} />
+                            {/* <Form.Control.Feedback type='invalid'>
+                                {errors.disabilityPercentage}
+                            </Form.Control.Feedback> */}
+                        </Form.Group>
+                        <Form.Group className="form-group text-center">
+                            <Button className="btn btn-dark px-5 rounded" onClick={onSubmit} type='submit'>Search</Button>
+                        </Form.Group>
+                    </Form>
                 </div>
             </div>
         );
     };
-    const errorMessage=()=>{
+    const errorMessage = () => {
+        var errorMessages = [];
+
+        for (const [key, value] of Object.entries(errors)) {
+            if(value)
+            {
+                errorMessages.push({ label: value.label, error: value.error })
+            }
+        }
+        console.log('errorMessages', errorMessages);
         return(
             <div className="row">
                 <div className="col-md-6 offset-sm-3 text-left">        
                     <div className="alert alert-danger" style={{display:error?"":"none"}}>
-                        {error}
+                        Oops! Please check for the below errors in the form!
+                        {
+                            errorMessages.map(opt => (<li key={opt.label}>{opt.label}: {opt.error}</li>))
+                        }
                     </div>
                 </div>
             </div>
