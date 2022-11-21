@@ -75,7 +75,7 @@ const FindService = () => {
     const FindTheServiceForm = () => {
         return (
             <div className="py-5 text-start">
-                <div className="col-md-6 offset-sm-3 border border-dark rounded">
+                <div className="col-md-8 offset-sm-2 border border-dark rounded">
                     <h4 className="rounded-bottom px-3 py-3" style={{
                         backgroundColor: "#D9D9D9"
                     }}>Let us help you find relevant scheme and services for you!</h4>
@@ -148,7 +148,7 @@ const FindService = () => {
         );
     };
     return(
-        <div className="row text-center">
+        <div className="container">
             {errorMessage()}
             {FindTheServiceForm()}
             {/* <p className="text-white">{JSON.stringify(values)}</p> */}
