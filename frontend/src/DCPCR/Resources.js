@@ -1,8 +1,8 @@
 import React from "react";
 const Resources = () => {
     return (
-        <div className="px-5">
-            <div className="px-5 py-5">
+        <div className="container">
+            <div className="py-3">
                 <h2>Important Resources</h2>
                 <ol>
                     <li>Important Notification or circular</li>
