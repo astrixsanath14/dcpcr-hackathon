@@ -6,7 +6,7 @@ import * as Constants from './res/Constants'
 import {Link, useHistory } from 'react-router-dom';
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
-
+import $ from 'jquery'
 
 const FindService = () => {
     const history = useHistory();
@@ -77,8 +77,8 @@ const FindService = () => {
     const renderTooltipForNearestClinic = props => (
         <Tooltip {...props}>
                         Have you got yourself or the concerned person’s screening & diagnosis done?
-            <Link to="/searchclinic" className="btn btn-sm rounded text-dark border" style={{
-                        backgroundColor: "#D9D9D9"
+            <Link to="/searchclinic" className="btn btn-sm rounded text-white border" style={{
+                        backgroundColor: "#474646"
                     }}>Check the steps and nearest clinics.</Link>
         </Tooltip>
     );
@@ -91,6 +91,11 @@ const FindService = () => {
 
 
     const FindTheServiceForm = () => {
+
+
+    // $(document).ready(function(){
+    //     $("a").tooltip();
+    // });
         return (
             <div className="py-5 text-start">
                 <div className="col-md-8 offset-sm-2 border border-dark rounded">
@@ -181,3 +186,7 @@ const FindService = () => {
 };
 
 export default FindService;
+
+// <style>
+//     .red-tooltip + .tooltip > .tooltip-inner {background-color: #f00;}
+// </style>

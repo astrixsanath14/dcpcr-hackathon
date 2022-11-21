@@ -34,23 +34,168 @@ export const DisabilityOptions = [
     },
     {
         value: 'intellectual_disability',
-        label: 'Intellectual Disability'
+        label: 'Intellectual Disability',
+        sub_types_label:"Under the overall ambit of Physical Disability, three types of disabilities are broadly classified",
+        sub_types:[
+            {
+                label:"Locomotor Disabilities",
+                description: "Locomotor Disability is the disability of the bones, joints or muscles leading to substantial restriction of the movement of the limbs or a usual form of cerebral palsy. Different types of locomotor disabilities are classified as the following-",
+                sub_types: [
+                    {
+                        label: "Leprosy cured person",
+                        description:"Any person who has been cured of leprosy but is suffering from- loss of sensation in hands or feet as well as loss of sensation and partial paralysis in the eyelid but with no visible deformity; visible deformity and partial paralysis but having sufficient mobility in their hands and feet to enable them to engage in normal economic activity; extreme physical deformity as well as advanced age which prevents the person from undertaking any gainful occupation."
+                    },
+                    {
+                        label: "Cerebral palsy",
+                        description: "A group of non-progressive conditions characterised by abnormal motor control posture resulting from brain insult or injuries occurring in the perinatal, neonatal or infant period of development."
+                    },
+                    {
+                        label: "Dwarfism",
+                        description: "Medical or genetic condition resulting in an adult height of 4 feet 10 inches (147 centimetres) or less."
+                    },
+                    {
+                        label: "Muscular dystrophy",
+                        description: "A group of hereditary genetic muscle diseases that weakens the muscles that move the human body. A person with multiple dystrophy has incorrect and missing information in their genes, which prevents them from making the proteins they need for healthy muscles. Dystrophy is a disorder in which an organ or tissue of the body wastes away."
+                    },
+                    {
+                        label: "Acid attack victims",
+                        description: "A person disfigured due to violent assaults by throwing of acid or similar corrosive substance."
+                    }
+                ]
+            }
+        ]
     },
     {
         value: 'mental_disability',
-        label: 'Mental Disability'
+        label: 'Mental Disability',
+        sub_types_label:"Under the overall ambit of Physical Disability, three types of disabilities are broadly classified",
+        sub_types:[
+            {
+                label:"Locomotor Disabilities",
+                description: "Locomotor Disability is the disability of the bones, joints or muscles leading to substantial restriction of the movement of the limbs or a usual form of cerebral palsy. Different types of locomotor disabilities are classified as the following-",
+                sub_types: [
+                    {
+                        label: "Leprosy cured person",
+                        description:"Any person who has been cured of leprosy but is suffering from- loss of sensation in hands or feet as well as loss of sensation and partial paralysis in the eyelid but with no visible deformity; visible deformity and partial paralysis but having sufficient mobility in their hands and feet to enable them to engage in normal economic activity; extreme physical deformity as well as advanced age which prevents the person from undertaking any gainful occupation."
+                    },
+                    {
+                        label: "Cerebral palsy",
+                        description: "A group of non-progressive conditions characterised by abnormal motor control posture resulting from brain insult or injuries occurring in the perinatal, neonatal or infant period of development."
+                    },
+                    {
+                        label: "Dwarfism",
+                        description: "Medical or genetic condition resulting in an adult height of 4 feet 10 inches (147 centimetres) or less."
+                    },
+                    {
+                        label: "Muscular dystrophy",
+                        description: "A group of hereditary genetic muscle diseases that weakens the muscles that move the human body. A person with multiple dystrophy has incorrect and missing information in their genes, which prevents them from making the proteins they need for healthy muscles. Dystrophy is a disorder in which an organ or tissue of the body wastes away."
+                    },
+                    {
+                        label: "Acid attack victims",
+                        description: "A person disfigured due to violent assaults by throwing of acid or similar corrosive substance."
+                    }
+                ]
+            }
+        ]
     },
     {
         value: 'nerological',
-        label: 'Neurological'
+        label: 'Neurological',
+        sub_types_label:"Under the overall ambit of Physical Disability, three types of disabilities are broadly classified",
+        sub_types:[
+            {
+                label:"Locomotor Disabilities",
+                description: "Locomotor Disability is the disability of the bones, joints or muscles leading to substantial restriction of the movement of the limbs or a usual form of cerebral palsy. Different types of locomotor disabilities are classified as the following-",
+                sub_types: [
+                    {
+                        label: "Leprosy cured person",
+                        description:"Any person who has been cured of leprosy but is suffering from- loss of sensation in hands or feet as well as loss of sensation and partial paralysis in the eyelid but with no visible deformity; visible deformity and partial paralysis but having sufficient mobility in their hands and feet to enable them to engage in normal economic activity; extreme physical deformity as well as advanced age which prevents the person from undertaking any gainful occupation."
+                    },
+                    {
+                        label: "Cerebral palsy",
+                        description: "A group of non-progressive conditions characterised by abnormal motor control posture resulting from brain insult or injuries occurring in the perinatal, neonatal or infant period of development."
+                    },
+                    {
+                        label: "Dwarfism",
+                        description: "Medical or genetic condition resulting in an adult height of 4 feet 10 inches (147 centimetres) or less."
+                    },
+                    {
+                        label: "Muscular dystrophy",
+                        description: "A group of hereditary genetic muscle diseases that weakens the muscles that move the human body. A person with multiple dystrophy has incorrect and missing information in their genes, which prevents them from making the proteins they need for healthy muscles. Dystrophy is a disorder in which an organ or tissue of the body wastes away."
+                    },
+                    {
+                        label: "Acid attack victims",
+                        description: "A person disfigured due to violent assaults by throwing of acid or similar corrosive substance."
+                    }
+                ]
+            }
+        ]
     },
     {
         value: 'bllod_disability',
-        label: 'Blood Disability'
+        label: 'Blood Disability',
+        sub_types_label:"Under the overall ambit of Physical Disability, three types of disabilities are broadly classified",
+        sub_types:[
+            {
+                label:"Locomotor Disabilities",
+                description: "Locomotor Disability is the disability of the bones, joints or muscles leading to substantial restriction of the movement of the limbs or a usual form of cerebral palsy. Different types of locomotor disabilities are classified as the following-",
+                sub_types: [
+                    {
+                        label: "Leprosy cured person",
+                        description:"Any person who has been cured of leprosy but is suffering from- loss of sensation in hands or feet as well as loss of sensation and partial paralysis in the eyelid but with no visible deformity; visible deformity and partial paralysis but having sufficient mobility in their hands and feet to enable them to engage in normal economic activity; extreme physical deformity as well as advanced age which prevents the person from undertaking any gainful occupation."
+                    },
+                    {
+                        label: "Cerebral palsy",
+                        description: "A group of non-progressive conditions characterised by abnormal motor control posture resulting from brain insult or injuries occurring in the perinatal, neonatal or infant period of development."
+                    },
+                    {
+                        label: "Dwarfism",
+                        description: "Medical or genetic condition resulting in an adult height of 4 feet 10 inches (147 centimetres) or less."
+                    },
+                    {
+                        label: "Muscular dystrophy",
+                        description: "A group of hereditary genetic muscle diseases that weakens the muscles that move the human body. A person with multiple dystrophy has incorrect and missing information in their genes, which prevents them from making the proteins they need for healthy muscles. Dystrophy is a disorder in which an organ or tissue of the body wastes away."
+                    },
+                    {
+                        label: "Acid attack victims",
+                        description: "A person disfigured due to violent assaults by throwing of acid or similar corrosive substance."
+                    }
+                ]
+            }
+        ]
     },
     {
         value: 'multiple_disability',
-        label: 'Multiple Disability'
+        label: 'Multiple Disability',
+        sub_types_label:"Under the overall ambit of Physical Disability, three types of disabilities are broadly classified",
+        sub_types:[
+            {
+                label:"Locomotor Disabilities",
+                description: "Locomotor Disability is the disability of the bones, joints or muscles leading to substantial restriction of the movement of the limbs or a usual form of cerebral palsy. Different types of locomotor disabilities are classified as the following-",
+                sub_types: [
+                    {
+                        label: "Leprosy cured person",
+                        description:"Any person who has been cured of leprosy but is suffering from- loss of sensation in hands or feet as well as loss of sensation and partial paralysis in the eyelid but with no visible deformity; visible deformity and partial paralysis but having sufficient mobility in their hands and feet to enable them to engage in normal economic activity; extreme physical deformity as well as advanced age which prevents the person from undertaking any gainful occupation."
+                    },
+                    {
+                        label: "Cerebral palsy",
+                        description: "A group of non-progressive conditions characterised by abnormal motor control posture resulting from brain insult or injuries occurring in the perinatal, neonatal or infant period of development."
+                    },
+                    {
+                        label: "Dwarfism",
+                        description: "Medical or genetic condition resulting in an adult height of 4 feet 10 inches (147 centimetres) or less."
+                    },
+                    {
+                        label: "Muscular dystrophy",
+                        description: "A group of hereditary genetic muscle diseases that weakens the muscles that move the human body. A person with multiple dystrophy has incorrect and missing information in their genes, which prevents them from making the proteins they need for healthy muscles. Dystrophy is a disorder in which an organ or tissue of the body wastes away."
+                    },
+                    {
+                        label: "Acid attack victims",
+                        description: "A person disfigured due to violent assaults by throwing of acid or similar corrosive substance."
+                    }
+                ]
+            }
+        ]
     }
 ];
   

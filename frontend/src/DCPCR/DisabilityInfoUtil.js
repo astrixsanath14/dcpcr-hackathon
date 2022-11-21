@@ -32,3 +32,20 @@ export const getRowWiseDisabilityOptions = (excludeDisabilityInfo) =>
     }
     return rowWiseDisabilityOptions;
 }
+
+export const getDisability = (disabilityValue) =>
+{
+    var disability;
+    if(disabilityValue)
+    {
+        for (var i = 0; i < Constants.DisabilityOptions.length; i++)
+        {
+            if (disabilityValue === Constants.DisabilityOptions[i].value)
+            {
+                disability = Constants.DisabilityOptions[i];
+                break;
+            }
+        }
+    }
+    return disability;
+}

@@ -68,7 +68,34 @@ const DisabilityInfo = () => {
 
     const renderSelectedDisabilityContent = (selectedDisability) =>
     {
-        
+        var selectedDisabilityElement = DisabilityInfoUtil.getDisability(selectedDisability);
+        return (
+            <div className="px-5">
+                <div className="py-2"><b>{selectedDisabilityElement.label}</b></div>
+                <div className="py-2">{selectedDisabilityElement.sub_types_label}</div>
+                <div className="py-2">
+                    <ol>{
+                        selectedDisabilityElement.sub_types.map(disabilitySubType => (
+                            <div className="py-2">
+                                <li>
+                                    <b>{disabilitySubType.label}</b>: {disabilitySubType.description}
+                                    {
+                                        disabilitySubType.sub_types.map(disabilitySubTypeSubType => (
+                                            <ul>
+                                                <div className="py-2">
+                                                    <li><b>{disabilitySubTypeSubType.label}</b> - {disabilitySubTypeSubType.description}</li>
+                                                </div>
+                                            </ul>
+                                        ))
+                                    }
+                                </li>
+                            </div>
+                        ))
+                        }
+                    </ol>
+                </div>
+            </div>
+        );
     }
 
     return (
