@@ -3,7 +3,9 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Select from 'react-select'
 import * as Constants from './res/Constants'
-import { useHistory } from 'react-router-dom';
+import {Link, useHistory } from 'react-router-dom';
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
 
 
 const FindService = () => {
@@ -72,6 +74,22 @@ const FindService = () => {
         history.push('/showresults', { values: values });
 
     };
+    const renderTooltipForNearestClinic = props => (
+        <Tooltip {...props}>
+                        Have you got yourself or the concerned person’s screening & diagnosis done?
+            <Link to="/searchclinic" className="btn btn-sm rounded text-dark border" style={{
+                        backgroundColor: "#D9D9D9"
+                    }}>Check the steps and nearest clinics.</Link>
+        </Tooltip>
+    );
+
+    const renderTooltipForDisabilityPercentage = props => (
+        <Tooltip {...props}>
+            Want to know or apply for disability certificate?
+        </Tooltip>
+    );
+
+
     const FindTheServiceForm = () => {
         return (
             <div className="py-5 text-start">
@@ -104,14 +122,19 @@ const FindService = () => {
 
                         <Form.Group className="form-group px-5 py-3">
                             <Form.Label className="text-dark">Type of disability?</Form.Label>
-                            <Select onChange={handleChangeForSelect("typeOfDisability")} isInvalid={!!errors.typeOfDisability}
-                                options={Constants.DisabilityOptions}>
-                            </Select>
+                            <OverlayTrigger placement="right" overlay={renderTooltipForNearestClinic}>    
+                                <Select onChange={handleChangeForSelect("typeOfDisability")} isInvalid={!!errors.typeOfDisability}
+                                    options={Constants.DisabilityOptions} data-tip data-for="registerTip">
+                                </Select>
+                            </OverlayTrigger>
                         </Form.Group>
 
                         <Form.Group className="form-group px-5 py-3">
                             <Form.Label className="text-dark">Disability Percentage% (Optional)</Form.Label>
-                            <Form.Control className="form-control" onChange={handleChange("disabilityPercentage")} value={disabilityPercentage} type="number" required isInvalid={!!errors.disabilityPercentage} />
+                            <OverlayTrigger placement="right" overlay={renderTooltipForDisabilityPercentage}>    
+                                <Form.Control className="form-control" onChange={handleChange("disabilityPercentage")} value={disabilityPercentage}
+                                    type="number" required isInvalid={!!errors.disabilityPercentage} data-tip data-for="registerTip"/>
+                            </OverlayTrigger>
                             {/* <Form.Control.Feedback type='invalid'>
                                 {errors.disabilityPercentage}
                             </Form.Control.Feedback> */}
