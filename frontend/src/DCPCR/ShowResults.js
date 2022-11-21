@@ -52,7 +52,7 @@ const ShowResults = (props) => {
     console.log('values received', values);
     // const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
     return (
-        <div className="px-5">
+        <div className="container">
             {
                 Constants.SearchResults.map(titleElement => (
                     <div className="border-bottom">
